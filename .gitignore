@@ -1,0 +1,24 @@
+# Eclipse ignore.
+.classpath
+.settings
+.project
+
+# Generated directories ignore.
+bin
+gen
+
+# Android built application files
+*.apk
+*.ap_
+
+#  Android files for the dex VM
+*.dex
+
+#  Android Java class files
+*.class
+
+# Temporary eclipse edition files.
+*.swp
+
+#  Android generated GUI files
+*R.java
