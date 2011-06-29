@@ -26,6 +26,9 @@ displayed at its native pixel size. But rotating again to landscape works and
 is shown perfectly. Any ideas why? Unfortunately I don't have more hardware to
 test this on.
 
+I'm asking also on StackOverflow at
+http://stackoverflow.com/questions/6524659/avoid-android-videoview-corruption-when-rotating-back-to-portrait 
+
 
 Source code
 ===========
