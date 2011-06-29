@@ -38,7 +38,6 @@ public class VideoViewCustom extends VideoView
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
 	{
-		Log.i("VideoViewCustom", "onMeasure");
 		setMeasuredDimension(mForceWidth, mForceHeight);
 	}
 }
