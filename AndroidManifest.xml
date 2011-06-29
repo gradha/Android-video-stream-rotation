@@ -9,6 +9,7 @@
     <application android:icon="@drawable/icon" android:label="@string/app_name">
         <activity android:name=".HelloInterruptVideoStream"
 			android:label="@string/app_name"
+			android:theme="@android:style/Theme.NoTitleBar"
 			android:configChanges="orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
