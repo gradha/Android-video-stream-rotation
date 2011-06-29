@@ -15,8 +15,10 @@ import android.widget.MediaController;
 public class HelloInterruptVideoStream extends Activity
 	implements OnPreparedListener, OnVideoSizeChangedListener
 {
-	private final String TAG = "HelloInterruptVideoStream";
+	// You might need to put here another URL for the example to work.
 	private String path = "http://dl.dropbox.com/u/145894/t/rabbits.3gp";
+
+	private final String TAG = "HelloInterruptVideoStream";
 	private VideoViewCustom video_view;
 	private int screen_width, screen_height;
 	private int media_width, media_height;
