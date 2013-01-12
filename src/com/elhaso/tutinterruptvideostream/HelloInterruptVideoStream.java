@@ -1,11 +1,13 @@
 package com.elhaso.tutinterruptvideostream;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.media.MediaPlayer.OnVideoSizeChangedListener;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
@@ -23,30 +25,35 @@ public class HelloInterruptVideoStream extends Activity
 	private int screen_width, screen_height;
 	private int media_width, media_height;
 	private boolean landscape;
-
+    ProgressDialog progressDialog;
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-
+		setOnLoadVideo();
+	}
+	
+	public void setOnLoadVideo(){
 		getWindow().clearFlags(WindowManager
 			.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 			WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+	
 		// Get the size of the device, will be our maximum.
+        progressDialog = ProgressDialog.show(HelloInterruptVideoStream.this, "Loading","Loading video .... ", true);
 		Display display = getWindowManager().getDefaultDisplay();
 		screen_width = display.getWidth();
 		screen_height = display.getHeight();
-
+	
 		video_view = (VideoViewCustom)findViewById(R.id.surface_view);
-		video_view.setOnPreparedListener(this);
+		video_view.setOnPreparedListener(HelloInterruptVideoStream.this);
 		resize();
-
+	
 		video_view.setVideoURI(Uri.parse(path));
-		video_view.setMediaController(new MediaController(this));
+		video_view.setMediaController(new MediaController(HelloInterruptVideoStream.this));
 		video_view.requestFocus();
 	}
 
@@ -59,7 +66,6 @@ public class HelloInterruptVideoStream extends Activity
 	public void onConfigurationChanged(Configuration newConfig)
 	{
 		super.onConfigurationChanged(newConfig);
-
 		landscape =
 			(Configuration.ORIENTATION_LANDSCAPE == newConfig.orientation);
 		resize();
@@ -119,6 +125,7 @@ public class HelloInterruptVideoStream extends Activity
 			// Yuck, no sizes yet? Register a callback.
 			mp.setOnVideoSizeChangedListener(this);
 		}
+        progressDialog.dismiss();
 	}
 
 	/** Called when the media player knows the video size.
