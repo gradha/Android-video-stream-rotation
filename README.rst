@@ -3,6 +3,21 @@ Android video stream rotation
 =============================
 
 :author: Grzegorz Adam Hankiewicz <gradha@elhaso.com>
+:edited: Aman Virk <http://www.thetutlage.com>
+
+=============================
+Added Support For Loading Video Dialog
+=============================
+
+Since Adam did the nice job by setting up an video player which takes care of screen orientation , i thought of adding
+support of loading video dialog which shows the user a dialog saying "Loading video" instead of a blank screen.
+
+What's Changed
+==============
+
+  Changes are only inside "HelloInterruptVideoStream.java" file.
+=======
+
 
 .. contents::
 
