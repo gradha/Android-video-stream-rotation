@@ -2,15 +2,11 @@
 Android video stream rotation
 =============================
 
-:author: Grzegorz Adam Hankiewicz <gradha@elhaso.com>
+:author: Grzegorz Adam Hankiewicz <gradha@imap.cc>
 
 .. contents::
 
 .. section-numbering::
-
-.. raw:: pdf
-
-   PageBreak oneColumn
 
 General
 =======
@@ -20,14 +16,17 @@ internet. The video will be shown centered full screen, maintaining the video
 aspect ratio. Also, rotations don't interrupt the video, which keeps playing
 without problems.
 
-Everything seems fine, but... on my HTC Legend when you rotate back to
-portrait, the video is corrupted, and instead of showing full screen it is
-displayed at its native pixel size. But rotating again to landscape works and
-is shown perfectly. Any ideas why? Unfortunately I don't have more hardware to
-test this on.
+The test was created because I had video corruption problems on my HTC Legend
+device (see
+<http://stackoverflow.com/questions/6524659/avoid-android-videoview-corruption-when-rotating-back-to-portrait>).
+However it turns out the problem was with how I handled rotation and *escaping*
+into using a custom video view was **not** the solution.
 
-I'm asking also on StackOverflow at
-http://stackoverflow.com/questions/6524659/avoid-android-videoview-corruption-when-rotating-back-to-portrait 
+I'm leaving this repo here, but I won't be updating it or changing it further.
+Other people have found this useful and started doing improvements on it (see
+<https://github.com/gradha/Android-video-stream-rotation/pull/1>). You can
+check <https://github.com/gradha/Android-video-stream-rotation/network> to see
+the whole list of forks and possible improvements.
 
 
 Source code
@@ -43,10 +42,10 @@ SDK versions. I've tested this on an HTC Legend.
 License
 -------
 
-This buggy code is available under the
-BSD license (http://www.opensource.org/licenses/bsd-license.php).
+This code is available under the BSD license
+(<http://www.opensource.org/licenses/bsd-license.php>).
 
-Copyright (c) 2011, Grzegorz Adam Hankiewicz.
+Copyright (c) 2013, Grzegorz Adam Hankiewicz.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
